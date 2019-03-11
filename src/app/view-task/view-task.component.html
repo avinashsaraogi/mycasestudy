@@ -1,3 +1,32 @@
-<p>
-  view-task works!
-</p>
+<form #form="ngForm" autocomplete="off">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Task Name</label>
+                <input name="TaskName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Parent Task Name</label>
+                <input name="ParentTaskName" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Priority From</label>
+                <input name="PriorityFrom" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Priority To</label>
+                <input name="PriorityTo" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Start Date</label>
+                <input name="StartDate"  class="form-control">
+            </div>
+            <div class="form-group">
+                <label>End Date</label>
+                <input name="EndDate" class="form-control">
+            </div>
+        </div>
+    </div>
+</form>

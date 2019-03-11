@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from '../shared/task.service';
 
 @Component({
   selector: 'app-view-task',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewTaskComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:TaskService) { }
 
   ngOnInit() {
   }
