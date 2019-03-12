@@ -8,6 +8,8 @@ import { AddTaskComponent } from './add-task/add-task.component';
 import { HomeComponent } from './home/home.component';
 import { ViewTaskComponent } from './view-task/view-task.component';
 import { TaskService } from './shared/task.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,11 @@ import { TaskService } from './shared/task.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
+  entryComponents: [AddTaskComponent],
   providers: [TaskService],
   bootstrap: [AppComponent]
 })

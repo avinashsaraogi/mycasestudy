@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../shared/task.service';
 import { NgForm } from '@angular/forms';
+import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
+import { AddTaskComponent } from '../add-task/add-task.component';
 
 @Component({
   selector: 'app-view-task',
@@ -9,7 +11,7 @@ import { NgForm } from '@angular/forms';
 })
 export class ViewTaskComponent implements OnInit {
 
-  constructor(private service:TaskService) { }
+  constructor(private service:TaskService,private dialog:MatDialog) { }
 
   ngOnInit() {
     this.resetForm();
@@ -27,8 +29,16 @@ export class ViewTaskComponent implements OnInit {
     StartDate : new Date,
     EndDate : new Date
     };
-    this.service.taskList = [];
+    this.service.taskList = 
     
+  }
+  EditTask(taskIndex,TaskID){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width = "50%";
+    dialogConfig.data = {taskIndex,TaskID}
+    this.dialog.open(AddTaskComponent,dialogConfig);
   }
 
 }
