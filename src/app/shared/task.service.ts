@@ -6,6 +6,7 @@ import { Task } from './task.model';
 })
 export class TaskService {
   formData:Task;
+  taskList:Task[];
 
   constructor() { }
 }
