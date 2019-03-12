@@ -29,7 +29,7 @@ export class ViewTaskComponent implements OnInit {
     StartDate : new Date,
     EndDate : new Date
     };
-    this.service.taskList = 
+    this.service.taskList = [];
     
   }
   EditTask(taskIndex,TaskID){
