@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms'
+import {MatFormFieldModule,MatDatepickerModule,MatNativeDateModule, MatInputModule} from '@angular/material';
+import {MatSliderModule} from '@angular/material/slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +25,12 @@ import {MatDialogModule} from '@angular/material/dialog';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatSliderModule,
+    MatNativeDateModule,
+    MatInputModule
   ],
   entryComponents: [AddTaskComponent],
   providers: [TaskService],

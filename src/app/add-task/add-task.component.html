@@ -1,18 +1,48 @@
-<div class="panel panel-primary">
-  
-  <div class="panel-body">
-    <form>
+<h4 class="display-4">Add Task</h4>
+<hr>
+<form #form="ngForm" autocomplete="off" (ngSubmit)="functionName">
+<div class="form-group">
+  <label>Task</label>
+  <input type="text" name="TaskName" [(ngModel)]="formData.TaskName" class="form-control">
+</div>
+<div class="form-group">
+    <label>Priority</label>
+    <mat-slider
+        name="Priority"
+        class="example-margin"
+        [disabled]="false"
+        [invert]="false"
+        [max]="30"
+        [min]="1"
+        [step]="1"
+        [thumbLabel]="false"
+        [tickInterval]="false"
+        [(ngModel)]="formData.Priority"
+        [vertical]="false">
+    </mat-slider>
+  </div>
+  <div class="form-group">
+      <label>Parent Task</label>
+      <input type="text" name="ParentTaskName" [(ngModel)]="formData.ParentTaskName" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>StartDate</label>
+        <mat-form-field >
+            <input matInput [matDatepicker]="StartDate" placeholder="Choose Start Date">
+            <mat-datepicker-toggle matSuffix [for]="StartDate"></mat-datepicker-toggle>
+            <mat-datepicker #StartDate startView="year" [startAt]="startDate"></mat-datepicker>
+          </mat-form-field>
+      </div> 
       <div class="form-group">
-        <label class="col-md-4">Coin Name</label>
-        <input type="text" class="form-control" name="coin_name"/>
-      </div>
-      <div class="form-group">
-        <label class="col-md-4">Coin Price</label>
-        <input type="text" class="form-control" name="coin_price"/>
+          <label>EndDate</label>
+          <mat-form-field>
+              <input matInput [matDatepicker]="EndDate" placeholder="Choose End Date">
+              <mat-datepicker-toggle matSuffix [for]="EndDate"></mat-datepicker-toggle>
+            <mat-datepicker #EndDate startView="year" [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary">Add</button>
-        </div>
-    </form>
-  </div>
-</div>
+          <button type="submit" class="btn btn-dark">Add Task</button>
+          <button type="reset" class="btn btn-outline-dark ml-1">Reset</button>
+        </div>   
+</form>
