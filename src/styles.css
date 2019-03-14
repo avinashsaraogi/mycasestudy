@@ -15,10 +15,4 @@
 .table.table-hover tbody tr:hover{
     cursor: pointer;
 }
-.example-margin {
-    margin: 10px;
-}
-  
-.mat-slider-horizontal {
-    width: 300px;
-}
+

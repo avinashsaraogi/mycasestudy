@@ -1,30 +1,30 @@
 <form>
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-6 form-inline">
         <label for="inputTask" >Task</label>
-        <input type="text" class="form-control" id="inputTask" placeholder="Task 1">
+        <input type="text" class="form-control ml-4 col-sm-10" id="inputTask" placeholder="Task 1">
       </div>
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-6 form-inline">
         <label for="inputParentTask" >Parent Task</label>
-        <input type="text" class="form-control" id="inputParentTask" placeholder="Parent Task 1">
+        <input type="text" class="form-control ml-2 col-sm-9" id="inputParentTask" placeholder="Parent Task 1">
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-3">
+      <div class="form-group col-md-3 form-inline">
         <label for="inputPriorityFrom">Priority From</label>
-        <input type="text" class="form-control" id="inputPriorityFrom">
+        <input type="text" class="form-control ml-2 col-sm-6" id="inputPriorityFrom">
       </div>
-      <div class="form-group col-md-3">
+      <div class="form-group col-md-3 form-inline">
         <label for="inputPriorityTo">Priority To</label>
-        <input type="text" class="form-control" id="inputPriorityTo">
+        <input type="text" class="form-control ml-2 col-sm-6"  id="inputPriorityTo">
       </div>
-      <div class="form-group col-md-3">
+      <div class="form-group col-md-3 form-inline">
         <label for="startDate">Start Date</label>
-        <input type="text" class="form-control" id="startDate">
+        <input type="text" class="form-control ml-2 col-sm-6" id="startDate">
       </div>
-      <div class="form-group col-md-3">
-        <label for="startDate">End Date</label>
-        <input type="text" class="form-control" id="endDate">
+      <div class="form-group col-md-3 form-inline">
+        <label for="endDate">End Date</label>
+        <input type="text" class="form-control ml-2 col-sm-6" id="endDate">
       </div>
     </div>
     <!-- Task List Table-->
@@ -36,6 +36,7 @@
             <th>Start</th>
             <th>End</th>
             <th>
+                <a class="btn btn-sm btn-success" (click)="EditTask(i,service.formData.TaskID)" >Edit</a>
             </th>
             <th></th>
         </thead>

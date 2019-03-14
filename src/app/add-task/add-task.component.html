@@ -1,48 +1,54 @@
-<h4 class="display-4">Add Task</h4>
-<hr>
 <form #form="ngForm" autocomplete="off" (ngSubmit)="functionName">
-<div class="form-group">
-  <label>Task</label>
+<div class=" form-group row">
+  <label class="col-sm-2 col-form-label"  for="TaskName">Task</label>
+  <div class="col-sm-10">
   <input type="text" name="TaskName" [(ngModel)]="formData.TaskName" class="form-control">
 </div>
-<div class="form-group">
-    <label>Priority</label>
-    <mat-slider
+</div>
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label"  for="Priority">Priority</label>
+    <div class="col-sm-10">
+    <mat-slider 
         name="Priority"
-        class="example-margin"
-        [disabled]="false"
-        [invert]="false"
         [max]="30"
         [min]="1"
         [step]="1"
-        [thumbLabel]="false"
-        [tickInterval]="false"
-        [(ngModel)]="formData.Priority"
-        [vertical]="false">
+        [thumbLabel]="true"
+        [(ngModel)]="formData.Priority">
     </mat-slider>
   </div>
-  <div class="form-group">
-      <label>Parent Task</label>
+  </div>
+  <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="ParentTaskName">Parent Task</label>
+      <div class="col-sm-10">
       <input type="text" name="ParentTaskName" [(ngModel)]="formData.ParentTaskName" class="form-control">
     </div>
-    <div class="form-group">
-        <label>StartDate</label>
+  </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="StartDate">StartDate</label>
+        <div class="col-sm-10">
         <mat-form-field >
             <input matInput [matDatepicker]="StartDate" placeholder="Choose Start Date">
             <mat-datepicker-toggle matSuffix [for]="StartDate"></mat-datepicker-toggle>
-            <mat-datepicker #StartDate startView="year" [startAt]="startDate"></mat-datepicker>
+            <mat-datepicker name="StartDate" #StartDate startView="month" [(ngModel)]="formData.StartDate" [startAt]="StartDate"></mat-datepicker>
           </mat-form-field>
+        </div>
       </div> 
-      <div class="form-group">
-          <label>EndDate</label>
-          <mat-form-field>
+      <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="EndDate">EndDate</label>
+          <div class="col-sm-10">
+          <mat-form-field >
               <input matInput [matDatepicker]="EndDate" placeholder="Choose End Date">
               <mat-datepicker-toggle matSuffix [for]="EndDate"></mat-datepicker-toggle>
-            <mat-datepicker #EndDate startView="year" [startAt]="startDate"></mat-datepicker>
+            <mat-datepicker #EndDate startView="month" [startAt]="EndDate"></mat-datepicker>
             </mat-form-field>
         </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-dark">Add Task</button>
-          <button type="reset" class="btn btn-outline-dark ml-1">Reset</button>
+      </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" ></label>
+            <div class="col-sm-10">
+          <button type="submit" class="btn btn-primary mb-4">Add Task</button>
+          <button type="reset" class="btn btn-outline-dark mb-4 ml-1">Reset</button>
         </div>   
-</form>
+        </div>
+</form> 
