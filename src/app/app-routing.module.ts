@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddTaskComponent } from './add-task/add-task.component';
-import { HomeComponent } from './home/home.component';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 import { ViewTaskComponent } from './view-task/view-task.component';
 
 const routes: Routes = [

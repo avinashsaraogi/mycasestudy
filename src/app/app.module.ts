@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import {MatFormFieldModule,MatDatepickerModule,MatNativeDateModule, MatInputModule} from '@angular/material';
 import {MatSliderModule} from '@angular/material/slider';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddTaskComponent } from './add-task/add-task.component';
-import { HomeComponent } from './home/home.component';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 import { ViewTaskComponent } from './view-task/view-task.component';
 import { TaskService } from './shared/task.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -17,7 +17,7 @@ import {MatDialogModule} from '@angular/material/dialog';
   declarations: [
     AppComponent,
     AddTaskComponent,
-    HomeComponent,
+    EditTaskComponent,
     ViewTaskComponent
   ],
   imports: [
@@ -30,9 +30,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatDatepickerModule,
     MatSliderModule,
     MatNativeDateModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
-  entryComponents: [AddTaskComponent],
+  entryComponents: [EditTaskComponent],
   providers: [TaskService],
   bootstrap: [AppComponent]
 })

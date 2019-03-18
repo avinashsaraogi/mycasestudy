@@ -1,38 +1,37 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
 import { Task } from '../shared/task.model';
+import { TaskService } from '../shared/task.service';
+import { NgForm } from '@angular/forms';
+import { ParentTask } from '../shared/parent-task.model';
  
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
   styleUrls: ['./add-task.component.css'],
-  providers: [
-    { provide: MAT_DIALOG_DATA, useValue: {} },
-    { provide: MatDialogRef, useValue: {} }
-]
 
 })
 export class AddTaskComponent implements OnInit {
     formData:Task;
+    taskList:Task[];
   
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data,
-    public dialogRef:MatDialogRef<AddTaskComponent>
+    private taskService:TaskService
   ) { }
 
   ngOnInit() {
+    this.taskService.getTaskList().then(res => this.taskList = res as Task[])
     this.formData = {
-      TaskID:this.data.TaskID,
-      TaskName : '',
-      ParentTaskID : 0,
-      ParentTaskName : '',
-      Priority : 1,
-      StartDate : new Date(),
-      EndDate : new Date()
-
-
-
+      taskID:null,
+      taskName : '',
+      parentTask: new ParentTask(),
+      priority : 1,
+      startDate : new Date(),
+      endDate : new Date()
     }
+  }
+
+  onSubmit(form:NgForm){
+    this.taskService.taskList.push(form.value);
   }
 
 }

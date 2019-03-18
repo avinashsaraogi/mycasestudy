@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../shared/task.service';
 import { NgForm } from '@angular/forms';
 import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
-import { AddTaskComponent } from '../add-task/add-task.component';
+import { EditTaskComponent } from '../edit-task/edit-task.component';
+import { ParentTask } from '../shared/parent-task.model';
 
 @Component({
   selector: 'app-view-task',
@@ -21,24 +22,23 @@ export class ViewTaskComponent implements OnInit {
     if(form = null)
     form.resetForm();
     this.service.formData={
-    TaskID :(100000+Math.random()*90000),
-    TaskName :'',
-    Priority :0,
-    ParentTaskID : 0,
-    ParentTaskName : '',
-    StartDate : new Date,
-    EndDate : new Date
+    taskID :(100000+Math.random()*90000),
+    taskName :'',
+    priority :0,
+    parentTask: new ParentTask(),
+    startDate : new Date,
+    endDate : new Date
     };
     this.service.taskList = [];
     
   }
-  EditTask(taskIndex,TaskID){
+  EditTask(taskIndex,taskID){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width = "50%";
-    dialogConfig.data = {taskIndex,TaskID}
-    this.dialog.open(AddTaskComponent,dialogConfig);
+    dialogConfig.data = {taskIndex,taskID}
+    this.dialog.open(EditTaskComponent,dialogConfig);
   }
 
 }
