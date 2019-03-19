@@ -1,10 +1,10 @@
-import { ParentTask } from "./parent-task.model";
 
 export class Task {
     taskID :number;
     taskName :string;
     priority :number;
-    parentTask:ParentTask;
+    parentTask:Task;
     startDate : Date;
     endDate : Date;
+    status : boolean;
 }

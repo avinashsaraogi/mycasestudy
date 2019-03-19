@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Task } from '../shared/task.model';
 import { TaskService } from '../shared/task.service';
 import { NgForm } from '@angular/forms';
-import { ParentTask } from '../shared/parent-task.model';
+
 
 @Component({
   selector: 'app-edit-task',
@@ -29,15 +29,27 @@ export class EditTaskComponent implements OnInit {
     this.formData = {
       taskID:this.data.taskID,
       taskName : '',
-      parentTask : new ParentTask(),
+      parentTask : new Task(),
       priority : 1,
       startDate : new Date(),
-      endDate : new Date()
+      endDate : new Date(),
+      status : false
   }
   }
 
   onSubmit(form:NgForm){
-    //this.taskService.taskList.push(form.value);
+    this.taskService.taskList.push(form.value);
+    //this.dialogRef.close();
+    this.closeDialog();
+  }
+
+  onChange($event){
+    console.log($event)
+  } 
+
+  closeDialog(): void {
     this.dialogRef.close();
   }
+
+
 }

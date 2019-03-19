@@ -3,7 +3,8 @@ import { TaskService } from '../shared/task.service';
 import { NgForm } from '@angular/forms';
 import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import { EditTaskComponent } from '../edit-task/edit-task.component';
-import { ParentTask } from '../shared/parent-task.model';
+import { Task } from '../shared/task.model';
+
 
 @Component({
   selector: 'app-view-task',
@@ -25,9 +26,10 @@ export class ViewTaskComponent implements OnInit {
     taskID :(100000+Math.random()*90000),
     taskName :'',
     priority :0,
-    parentTask: new ParentTask(),
+    parentTask: new Task(),
     startDate : new Date,
-    endDate : new Date
+    endDate : new Date,
+    status : false,
     };
     this.service.taskList = [];
     

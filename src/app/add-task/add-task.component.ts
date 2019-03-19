@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from '../shared/task.model';
 import { TaskService } from '../shared/task.service';
 import { NgForm } from '@angular/forms';
-import { ParentTask } from '../shared/parent-task.model';
+
  
 @Component({
   selector: 'app-add-task',
@@ -23,10 +23,11 @@ export class AddTaskComponent implements OnInit {
     this.formData = {
       taskID:null,
       taskName : '',
-      parentTask: new ParentTask(),
+      parentTask: new Task(),
       priority : 1,
       startDate : new Date(),
-      endDate : new Date()
+      endDate : new Date(),
+      status : false
     }
   }
 
