@@ -7,10 +7,11 @@ import { ViewTaskComponent } from './view-task/view-task.component';
 const routes: Routes = [
   {path: '', redirectTo:'view-task',pathMatch:'full'},
   {path: 'add-task', component: AddTaskComponent},
-  {path: 'view-task', children:[
-    {path: '', component: ViewTaskComponent},
-    {path: 'edit/:id', component: ViewTaskComponent},
-  ]}
+  {path: 'view-task', component: ViewTaskComponent}
+  // {path: 'view-task', children:[
+  //   {path: '', component: ViewTaskComponent},
+  //   {path: 'edit/:id', component: ViewTaskComponent},
+  // ]}
 ];
 
 @NgModule({

@@ -6,5 +6,5 @@ export class Task {
     parentTask:Task;
     startDate : Date;
     endDate : Date;
-    status : boolean;
+    status : number;
 }

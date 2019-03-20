@@ -12,7 +12,7 @@ import { Task } from '../shared/task.model';
   styleUrls: ['./view-task.component.css']
 })
 export class ViewTaskComponent implements OnInit {
-
+  tasks:Task[];
   constructor(private service:TaskService,private dialog:MatDialog) { }
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class ViewTaskComponent implements OnInit {
     parentTask: new Task(),
     startDate : new Date,
     endDate : new Date,
-    status : false,
+    status : 0,
     };
     this.service.taskList = [];
     

@@ -12,13 +12,15 @@ import { ViewTaskComponent } from './view-task/view-task.component';
 import { TaskService } from './shared/task.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
+import { TaskFilterPipe } from './shared/task-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddTaskComponent,
     EditTaskComponent,
-    ViewTaskComponent
+    ViewTaskComponent,
+    TaskFilterPipe
   ],
   imports: [
     BrowserModule,

@@ -23,8 +23,8 @@
   <div class="form-group row">
       <label class="col-sm-2 col-form-label" for="parentID">Parent Task</label>
       <div class="col-sm-10">
-        <select name="parentID" #parentID="ngModel" [(ngModel)]="formData.parentTask.parentID" class="form-control" disabled >
-          <option value="{{formData.parentTask.parentID}}">{{formData.parentTask.parentTaskName}}</option>
+        <select name="parentID" #parentID="ngModel" [(ngModel)]="formData.parentTask.taskID" class="form-control" disabled >
+          <option value="{{formData.parentTask.taskID}}">{{formData.parentTask.taskName}}</option>
         </select>
     </div>
   </div>

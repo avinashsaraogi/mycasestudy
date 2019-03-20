@@ -33,7 +33,7 @@ export class EditTaskComponent implements OnInit {
       priority : 1,
       startDate : new Date(),
       endDate : new Date(),
-      status : false
+      status : 0
   }
   }
 

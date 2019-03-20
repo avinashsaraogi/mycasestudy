@@ -2,7 +2,8 @@
     <div class="form-row">
       <div class="form-group col-md-6 form-inline">
         <label for="inputTask" >Task</label>
-        <input type="text" class="form-control ml-4 col-sm-10" id="inputTask" placeholder="Task 1">
+        <input type="text" (keyup)="0" [(ngModel)]="searchString"
+        class="form-control ml-4 col-sm-10" id="inputTask" placeholder="Search by Task Name">
       </div>
       <div class="form-group col-md-6 form-inline">
         <label for="inputParentTask" >Parent Task</label>
@@ -28,7 +29,8 @@
       </div>
     </div>
     <!-- Task List Table-->
-    <table class="table table-borderless">
+    <table class="table table-borderless" 
+    *ngFor="let task of service.taskList | taskFilter:searchString ;let i=index;">
         <thead class="thead-light">
             <th>Task</th>
             <th>Parent</th>
@@ -36,7 +38,7 @@
             <th>Start</th>
             <th>End</th>
             <th>
-                <a class="btn btn-sm btn-success" (click)="EditTask(null,service.formData.TaskID)" >Edit</a>
+                <a class="btn btn-sm btn-success" (click)="EditTask(null,service.formData.taskID)" >Edit</a>
             </th>
             <th></th>
         </thead>
@@ -46,14 +48,14 @@
               No Task List Available
             </td>
           </tr>
-            <tr *ngFor="let task of service.taskList;let i=index;">
-                <td>{{task.TaskName}}</td>
-                <td>{{task.ParentTaskName}}</td>
-                <td>{{task.Priority}}</td>
-                <td>{{task.StartDate}}</td>
-                <td>{{task.EndDate}}</td>
+            <tr>
+                <td>{{task.taskName}}</td>
+                <td>{{task.parentTask.taskName}}</td>
+                <td>{{task.priority}}</td>
+                <td>{{task.startDate}}</td>
+                <td>{{task.endDate}}</td>
                 <td>
-                    <a class="btn btn-sm btn-success" (click)="EditTask(i,service.formData.TaskID)" >Edit</a>
+                    <a class="btn btn-sm btn-success" (click)="EditTask(i,service.formData.taskID)" >Edit</a>
                     <a class="btn btn-sm btn-success">End Task</a>
                 </td>
                 <td></td>
