@@ -12,17 +12,19 @@ import { Task } from '../shared/task.model';
   styleUrls: ['./view-task.component.css']
 })
 export class ViewTaskComponent implements OnInit {
-  taskNameSearch: string;
-  parentTaskNameSearch: string;
-  priorityFromSearch: string;
-  priorityToSearch: string;
-  startDateSearch: string;
-  endDateSearch: string;
+  taskNameSearch:'';
+  parentTaskNameSearch: '';
+  priorityFromSearch: '';
+  priorityToSearch: '';
+  startDateSearch: '';
+  endDateSearch: '';
+  taskList: Task[] = [];
 
   constructor(private service:TaskService,private dialog:MatDialog) { }
 
   ngOnInit() {
-    this.resetForm();
+    this.service.getTaskList().then(res => this.taskList = res as Task[]);
+    //this.resetForm();
   }
 
   resetForm(form?:NgForm){
@@ -37,10 +39,10 @@ export class ViewTaskComponent implements OnInit {
     endDate : new Date,
     status : 0,
     };
-    this.service.taskList = [];
+    //this.service.taskList = [];
     
   }
-  EditTask(taskIndex:number,taskID:number){
+  EditTask(taskIndex,taskID){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;

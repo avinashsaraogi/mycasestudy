@@ -16,7 +16,7 @@ import { NgForm } from '@angular/forms';
 })
 export class EditTaskComponent implements OnInit {
   formData:Task;
-  taskList:Task[];
+  parenttaskList:Task[];
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
@@ -25,7 +25,7 @@ export class EditTaskComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    //this.taskService.getTaskList().then(res => this.taskList = res as Task[])
+    this.taskService.getTaskList().then(res => this.parenttaskList = res as Task[])
     this.formData = {
       taskID:this.data.taskID,
       taskName : '',

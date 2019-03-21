@@ -7,12 +7,12 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class TaskService {
-  formData:Task;
-  taskList:Task[];
+  formData:Task = new Task();
+  taskList:Task[] = new Array();
 
   constructor(private http:HttpClient) { }
 
   getTaskList(){
-    return this.http.get(environment.apiURL+'/tasks').toPromise();
+    return this.http.get(environment.apiURL+'/task').toPromise();
   }
 }
