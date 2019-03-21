@@ -20,7 +20,7 @@ export class AddTaskComponent implements OnInit {
 
   ngOnInit() {
     this.taskService.getTaskList().then(res => this.taskList = res as Task[])
-    this.formData = {
+    this.taskService.formData = {
       taskID:null,
       taskName : '',
       parentTask: new Task(),

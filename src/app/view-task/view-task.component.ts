@@ -12,7 +12,13 @@ import { Task } from '../shared/task.model';
   styleUrls: ['./view-task.component.css']
 })
 export class ViewTaskComponent implements OnInit {
-  tasks:Task[];
+  taskNameSearch: string;
+  parentTaskNameSearch: string;
+  priorityFromSearch: string;
+  priorityToSearch: string;
+  startDateSearch: string;
+  endDateSearch: string;
+
   constructor(private service:TaskService,private dialog:MatDialog) { }
 
   ngOnInit() {
@@ -23,7 +29,7 @@ export class ViewTaskComponent implements OnInit {
     if(form = null)
     form.resetForm();
     this.service.formData={
-    taskID :(100000+Math.random()*90000),
+    taskID :null,
     taskName :'',
     priority :0,
     parentTask: new Task(),
@@ -34,7 +40,7 @@ export class ViewTaskComponent implements OnInit {
     this.service.taskList = [];
     
   }
-  EditTask(taskIndex,taskID){
+  EditTask(taskIndex:number,taskID:number){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;

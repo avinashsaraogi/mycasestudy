@@ -1,36 +1,40 @@
-<form>
+<form autocomplete="off">
     <div class="form-row">
       <div class="form-group col-md-6 form-inline">
         <label for="inputTask" >Task</label>
-        <input type="text" (keyup)="0" [(ngModel)]="searchString"
-        class="form-control ml-4 col-sm-10" id="inputTask" placeholder="Search by Task Name">
+        <input type="text" [(ngModel)]="taskNameSearch" 
+        class="form-control ml-4 col-sm-10" name="inputTask" placeholder="Search by Task Name">
       </div>
       <div class="form-group col-md-6 form-inline">
         <label for="inputParentTask" >Parent Task</label>
-        <input type="text" class="form-control ml-2 col-sm-9" id="inputParentTask" placeholder="Parent Task 1">
+        <input type="text" [(ngModel)]="parentTaskNameSearch"
+        class="form-control ml-2 col-sm-9" name="inputParentTask" placeholder="Search by Parent Task Name">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-3 form-inline">
         <label for="inputPriorityFrom">Priority From</label>
-        <input type="text" class="form-control ml-2 col-sm-6" id="inputPriorityFrom">
+        <input type="text" [(ngModel)]="priorityFromSearch"
+        class="form-control ml-2 col-sm-6" name="inputPriorityFrom">
       </div>
       <div class="form-group col-md-3 form-inline">
         <label for="inputPriorityTo">Priority To</label>
-        <input type="text" class="form-control ml-2 col-sm-6"  id="inputPriorityTo">
+        <input type="text" [(ngModel)]="priorityToSearch"
+        class="form-control ml-2 col-sm-6"  name="inputPriorityTo">
       </div>
       <div class="form-group col-md-3 form-inline">
         <label for="startDate">Start Date</label>
-        <input type="text" class="form-control ml-2 col-sm-6" id="startDate">
+        <input type="text" [(ngModel)]="startDateSearch"
+        class="form-control ml-2 col-sm-6" name="startDate">
       </div>
       <div class="form-group col-md-3 form-inline">
         <label for="endDate">End Date</label>
-        <input type="text" class="form-control ml-2 col-sm-6" id="endDate">
+        <input type="text" [(ngModel)]="endDateSearch"
+        class="form-control ml-2 col-sm-6" name="endDate">
       </div>
     </div>
     <!-- Task List Table-->
-    <table class="table table-borderless" 
-    *ngFor="let task of service.taskList | taskFilter:searchString ;let i=index;">
+    <table class="table table-borderless">
         <thead class="thead-light">
             <th>Task</th>
             <th>Parent</th>
@@ -48,15 +52,18 @@
               No Task List Available
             </td>
           </tr>
-            <tr>
+            <tr *ngFor="let task of service.taskList | taskFilter:taskNameSearch:
+            parentTaskNameSearch: priorityFromSearch: priorityToSearch:startDateSearch
+            : endDateSearch ;let i=index;">
                 <td>{{task.taskName}}</td>
                 <td>{{task.parentTask.taskName}}</td>
                 <td>{{task.priority}}</td>
                 <td>{{task.startDate}}</td>
                 <td>{{task.endDate}}</td>
                 <td>
-                    <a class="btn btn-sm btn-success" (click)="EditTask(i,service.formData.taskID)" >Edit</a>
-                    <a class="btn btn-sm btn-success">End Task</a>
+                    <a class="btn btn-sm btn-info text-white" 
+                    (click)="EditTask(i,service.formData.taskID)" >Edit</a>
+                    <a class="btn btn-sm btn-success text-white">End Task</a>
                 </td>
                 <td></td>
             </tr>
