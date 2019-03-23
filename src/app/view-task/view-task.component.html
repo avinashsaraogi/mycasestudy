@@ -41,9 +41,7 @@
             <th>Priority</th>
             <th>Start</th>
             <th>End</th>
-            <th>
-                <a class="btn btn-sm btn-success" (click)="EditTask(null,service.formData.taskID)" >Edit</a>
-            </th>
+            <th></th>
             <th></th>
         </thead>
         <tbody>
@@ -56,14 +54,14 @@
             parentTaskNameSearch: priorityFromSearch: priorityToSearch:startDateSearch
             : endDateSearch ;let i=index;">
                 <td>{{task.taskName}}</td>
-                <td>{{task.parentTask.taskName}}</td>
+                <td>{{task.parentTask?.taskName}}</td>
                 <td>{{task.priority}}</td>
                 <td>{{task.startDate}}</td>
                 <td>{{task.endDate}}</td>
                 <td>
                     <a class="btn btn-sm btn-info mb-4 text-white" 
                     (click)="EditTask(i,service.formData.taskID)" >Edit</a>
-                    <a class="btn btn-sm btn-success mb-4 ml-1 text-white">End Task</a>
+                    <a class="btn btn-sm btn-info mb-4 ml-1 text-white">End Task</a>
                 </td>
                 <td></td>
             </tr>

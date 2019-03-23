@@ -25,16 +25,10 @@ export class EditTaskComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.taskService.getTaskList().then(res => this.parenttaskList = res as Task[])
-    this.formData = {
-      taskID:this.data.taskID,
-      taskName : '',
-      parentTask : new Task(),
-      priority : 1,
-      startDate : new Date(),
-      endDate : new Date(),
-      status : 0
-  }
+    if(this.data.taskIndex != null){
+      this.formData = this.taskService.taskList[this.data.taskIndex];
+    }
+    
   }
 
   onSubmit(form:NgForm){

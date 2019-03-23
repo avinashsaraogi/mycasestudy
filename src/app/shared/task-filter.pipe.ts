@@ -19,7 +19,6 @@ export class TaskFilterPipe implements PipeTransform{
             return tasks;
         }
         if(taskNameSearch != ""){
-            console.log(tasks);
             tasks = [...tasks.filter(task => 
                 task.taskName.toLowerCase().includes(taskNameSearch.toLowerCase()))];
         }

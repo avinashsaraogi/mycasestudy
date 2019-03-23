@@ -12,12 +12,12 @@ import { Task } from '../shared/task.model';
   styleUrls: ['./view-task.component.css']
 })
 export class ViewTaskComponent implements OnInit {
-  taskNameSearch:'';
-  parentTaskNameSearch: '';
-  priorityFromSearch: '';
-  priorityToSearch: '';
-  startDateSearch: '';
-  endDateSearch: '';
+  taskNameSearch: string = '';
+  parentTaskNameSearch: string = '';
+  priorityFromSearch: string = '';
+  priorityToSearch: string = '';
+  startDateSearch: string = '';
+  endDateSearch: string = '';
   taskList: Task[] = [];
 
   constructor(private service:TaskService,private dialog:MatDialog) { }
