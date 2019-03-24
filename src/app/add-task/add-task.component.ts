@@ -12,15 +12,16 @@ import { NgForm } from '@angular/forms';
 })
 export class AddTaskComponent implements OnInit {
     formData:Task;
-    taskList:Task[];
+    parenttaskList:Task[] = [];
   
   constructor(
     private taskService:TaskService
   ) { }
 
   ngOnInit() {
-    this.taskService.getTaskList().then(res => this.taskList = res as Task[])
-    this.taskService.formData = {
+    this.taskService.getTaskList().then(res => this.parenttaskList = res as Task[]);
+    console.log(this.parenttaskList.length);
+    this.formData = {
       taskID:null,
       taskName : '',
       parentTask: new Task(),
@@ -33,6 +34,18 @@ export class AddTaskComponent implements OnInit {
 
   onSubmit(form:NgForm){
     this.taskService.taskList.push(form.value);
+    console.log(form.value);
+  }
+
+  updateParentName(ctrl){
+    if(ctrl.selectedIndex==0){
+      this.formData.parentTask = null;
+    }
+    else{
+      console.log(this.parenttaskList[ctrl.selectedIndex-1]);
+      this.formData.parentTask.taskID = JSON.parse(JSON.stringify(this.parenttaskList[ctrl.selectedIndex-1])).taskId;
+      console.log(JSON.parse(JSON.stringify(this.parenttaskList[ctrl.selectedIndex-1])).taskId);
+    }
   }
 
 }
